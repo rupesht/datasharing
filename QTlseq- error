@@ -1,0 +1,48 @@
+I am performing the Qtlseq analysis and getting following error can any one suggest how to exicute it and slove the problem.
+(base) user1@pc101-PowerEdge-T630:~/anaconda3$ qtlseq -r Gmax_508_v4.0.fa \
+> -p RT4_rmdup.bam \
+>          -b1 RT1_rmdup.bam \
+>          -b2 RT2_rmdup.bam \
+>          -n1 10 \
+>          -n2 10 \
+>
+bin/                         jmods/                       qml/
+compiler_compat/             legal/                       resources/
+condabin/                    lib/                         sbin/
+conda-meta/                  libexec/                     share/
+conf/                        LICENSE.txt                  shell/
+DISCLAIMER                   man/                         ssl/
+doc/                         mkspecs/                     translations/
+envs/                        phrasebooks/                 var/
+etc/                         pkgs/                        x86_64-conda_cos6-linux-gnu/
+include/                     plugins/
+>  -o /home/user1/test_dir
+[QTL-seq:2019-08-29 23:27:54] start to run QTL-seq.
+[QTL-seq:2019-08-29 23:27:54] maximum number of threads which you can use is up to 72.
+[QTL-seq:2019-08-29 23:27:54] start to index reference fasta.
+[QTL-seq:2019-08-29 23:27:54] !!ERROR!! bwa index /home/user1/test_dir/10_ref/Gmax_508_v4.0.fa >> /h
+
+please check below:
+
+[bwa_idx_build] fail to open file '/home/user1/test_dir/10_ref/Gmax_508_v4.0.fa' : No such file or d
+Traceback (most recent call last):
+  File "/home/user1/anaconda3/lib/python3.7/site-packages/qtlseq/refindex.py", line 33, in run
+    check=True)
+  File "/home/user1/anaconda3/lib/python3.7/subprocess.py", line 487, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command 'bwa index /home/user1/test_dir/10_ref/Gmax_508_v4.0.fa >> /h
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user1/anaconda3/bin/qtlseq", line 12, in <module>
+    sys.exit(main())
+  File "/home/user1/anaconda3/lib/python3.7/site-packages/qtlseq/qtlseq.py", line 168, in main
+    QTLseq(args).run()
+  File "/home/user1/anaconda3/lib/python3.7/site-packages/qtlseq/qtlseq.py", line 157, in run
+    self.refindex()
+  File "/home/user1/anaconda3/lib/python3.7/site-packages/qtlseq/qtlseq.py", line 74, in refindex
+    ri.run()
+  File "/home/user1/anaconda3/lib/python3.7/site-packages/qtlseq/refindex.py", line 36, in run
+    sys.exit()
+NameError: name 'sys' is not defined
